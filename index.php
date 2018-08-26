@@ -3,14 +3,21 @@ session_start();
 
 include_once("Classes/User.class.php");
 include_once ("Classes/List.class.php");
+include_once ("Classes/Task.class.php");
 $feedback = "";
+
+$list = new Lists();
+$l = $list->showList();
+
+$task = new Tasks();
+$t = $task->showTask();
 
 if (!empty($_POST)) {
 
 
     $list = new Lists();
     $list->setName($_POST['list']);
-    $list->showList();
+
 
 
 
@@ -44,26 +51,34 @@ if (!empty($_POST)) {
 </form>
 </div>
 
+<a href="task.php"><h3>Add Task</h3></a>
+
 <div class="feedback">
     <p><?php echo $feedback ?></p>
 </div>
 
 <div class="lists">
-    <div class="article-container">
-
-        <?php $conn=Db::getInstance(); // voor het moment is de feedhardcoded samen met de friendlist deze gaat nog naar oop omgezetworden ?>
-        <?php $q="SELECT * FROM lists";?>
-        <?php $statement=$conn->prepare($q);?>
-        <?php $statement->execute();?>
-        <?php while ($res = $statement->fetch(PDO::FETCH_ASSOC)):?>
-            <p><?php echo $res['naam']?></p>
-
+    <h2>Lijsten</h2>
+    <br>
+<?php foreach($l as $a): ?>
+<?php echo $a['naam']; ?>
+    <br>
+<?php endforeach; ?>
+</div>
 
 
-        <?php endwhile;?>
+<div class="Tasks">
 
+    <h2>Taken</h2>
+    <hr>
+    <?php foreach ($t as $ta): ?>
+        <p>Task:<?php echo $ta['title']; ?></p>
+        <p>List:<?php echo $ta['list']; ?></p>
+        <p>Hours:<?php echo $ta['hours']; ?></p>
+        <p>Deadline:<?php echo $ta['deadline']; ?></p>
+        <hr>
+    <?php endforeach; ?>
 
-    </div>
 </div>
 
 
