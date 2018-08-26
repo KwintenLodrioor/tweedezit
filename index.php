@@ -35,6 +35,8 @@ if (!empty($_POST)) {
 </head>
 <body>
 
+<a href="logout.php">logout</a>
+
 <div class="AddList">
 <form action="" method="post">
     <input type="text" name="list" id="list" placeholder="New list">
@@ -47,8 +49,24 @@ if (!empty($_POST)) {
 </div>
 
 <div class="lists">
+    <div class="article-container">
 
+        <?php $conn=Db::getInstance(); // voor het moment is de feedhardcoded samen met de friendlist deze gaat nog naar oop omgezetworden ?>
+        <?php $q="SELECT * FROM lists";?>
+        <?php $statement=$conn->prepare($q);?>
+        <?php $statement->execute();?>
+        <?php while ($res = $statement->fetch(PDO::FETCH_ASSOC)):?>
+            <p><?php echo $res['naam']?></p>
+
+
+
+        <?php endwhile;?>
+
+
+    </div>
 </div>
+
+
 
 
 </body>

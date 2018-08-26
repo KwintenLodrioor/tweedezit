@@ -28,6 +28,7 @@ if(!empty($_POST)){
 ?><!doctype html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="mainlogin.css">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -42,10 +43,13 @@ if(!empty($_POST)){
     <input type="text" id="password" name="password" placeholder="Password">
     <input type="submit"value="Submit">
 </form>
+    <a href="register.php">register</a>
 </div>
 
 <div class="feedback">
     <p><?php echo $feedback ?></p>
 </div>
+
+
 </body>
 </html>
