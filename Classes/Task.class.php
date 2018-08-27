@@ -8,6 +8,23 @@ Class Tasks
    private $list;
    private $hours;
    private $deadline;
+   private $status;
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
 
     /**
      * @return mixed
@@ -96,6 +113,8 @@ Class Tasks
         $res = $statement->fetchAll();
         return $res;
     }
+
+    
 
 
 
