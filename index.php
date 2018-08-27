@@ -82,9 +82,9 @@ if (!empty($_POST)) {
 
     <?php foreach ($t as $ta): ?>
 
-    <div class="<?php echo $ta['status']?>">
+       <div class="<?php echo $ta['status']?>">
         <?php $taskid = $ta['id']; ?>
-        <p id="task" style="font-size: 1.2em; margin-left: 2%;"><?php echo $ta['title']; ?></p>
+           <a href="detailTask.php?userID=<?php echo $ta['title']; ?>"><p id="task" style="font-size: 1.2em; margin-left: 2%;"><?php echo $ta['title']; ?></p></a>
         <p id="hours"style="margin-left: 2%;display: block;">Hours:<?php echo $ta['hours']; ?></p>
         <p id="deadline"style="display: block;float: right;">Deadline:<?php echo $ta['deadline']; ?></p>
         <p id="status"style="margin-left: 2%">Status:<?php echo $ta['status']; ?></p>
