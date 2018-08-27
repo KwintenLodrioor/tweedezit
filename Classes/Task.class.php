@@ -90,7 +90,7 @@ Class Tasks
     public function showTask()
     {
         $conn = Db::getInstance();
-        $statement = $conn->prepare("select * from Tasks where userid = :userid");
+        $statement = $conn->prepare("select * from Tasks where userid = :userid order by deadline ASC ");
         $statement->bindValue(':userid', $_SESSION['userid']);
         $res = $statement->execute();
         $res = $statement->fetchAll();
